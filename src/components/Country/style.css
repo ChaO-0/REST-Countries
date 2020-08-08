@@ -1,0 +1,137 @@
+.back {
+  margin: 2% 0;
+  padding: 0.7% 2%;
+  background-color: white;
+  border: none;
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+}
+
+.back.dark-mode {
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
+}
+
+.back .fa-arrow-left {
+  padding-right: 10px;
+}
+
+.country-info {
+  padding: inherit;
+  display: flex;
+}
+
+.country-info.dark-mode {
+  color: hsl(0, 0%, 100%);
+}
+
+.country-flag img {
+  width: 40vw;
+  height: 50vh;
+}
+
+.country-detail {
+  padding: 1.5% 0;
+  padding-left: 10%;
+  width: 100%;
+}
+
+.borders {
+  padding: 10% 0;
+  font-weight: 600;
+  display: flex;
+}
+
+.borders .borders-title {
+  width: 10vw;
+}
+
+.dark-mode .borders-name button {
+  background-color: hsl(209, 23%, 22%);
+
+  -webkit-transition: background-color 350ms linear;
+  -ms-transition: background-color 350ms linear;
+  transition: background-color 350ms linear;
+}
+
+.borders-name button {
+  padding: 5px 30px;
+  background-color: white;
+  border: none;
+  box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.2);
+  margin: 0.5% 1%;
+  outline: none;
+}
+
+.detail-info {
+  display: flex;
+  justify-content: space-between;
+  width: 40vw;
+}
+
+.detail-info p {
+  margin: 5% 0;
+  font-weight: 600;
+}
+
+.main-detail span {
+  font-weight: 300;
+}
+
+.side-detail span {
+  font-weight: 300;
+}
+
+@media screen and (max-width: 768px) {
+  .country-info {
+    padding: inherit;
+    display: block;
+  }
+
+  .country-flag img {
+    width: 100%;
+    height: auto;
+  }
+
+  .country-detail {
+    padding: 0;
+    width: 100%;
+  }
+
+  .detail-info {
+    display: block;
+  }
+
+  .main-detail {
+    padding-bottom: 30px;
+    width: 150%;
+  }
+
+  .side-detail {
+    font-weight: 300;
+    width: 150%;
+  }
+
+  .borders {
+    padding: 10% 0;
+    font-weight: 600;
+    display: block;
+  }
+
+  .borders .borders-title {
+    width: 100%;
+  }
+
+  .borders-name {
+    margin-top: 20px;
+  }
+
+  .borders-name button {
+    margin: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}

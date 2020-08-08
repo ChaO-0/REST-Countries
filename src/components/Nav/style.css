@@ -1,0 +1,32 @@
+nav .navbar-brand {
+  padding: 0 40px;
+  font-weight: bold;
+}
+
+.theme-toggler {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  padding: 0 40px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  background-color: hsl(0, 0%, 100%);
+  padding: 20px;
+  box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.2);
+  justify-content: space-between;
+  -webkit-transition: background-color 350ms linear;
+  -ms-transition: background-color 350ms linear;
+  transition: background-color 350ms linear;
+}
+
+nav.dark-mode {
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
+  -webkit-transition: background-color 350ms linear;
+  -ms-transition: background-color 350ms linear;
+  transition: background-color 350ms linear;
+}
