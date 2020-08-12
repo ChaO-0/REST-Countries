@@ -6,6 +6,7 @@ import "./style.css";
 const Country = ({ darkmode }) => {
   const { country } = useParams();
   const [Detail, setDetail] = useState("");
+  const [Error, setError] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -53,13 +54,23 @@ const Country = ({ darkmode }) => {
           borders: borderList,
         });
       } catch (e) {
-        setDetail(null);
+        setError(true);
       }
     };
     fetchData();
   }, [country]);
 
-  return Detail ? (
+  return Error ? (
+    <>
+      <button
+        className={darkmode ? "back dark-mode" : "back"}
+        onClick={() => history.goBack()}
+      >
+        <i className="fas fa-arrow-left"></i> Back
+      </button>
+      <h1 style={{ textAlign: "center" }}>404 COUNTRY NOT FOUND</h1>
+    </>
+  ) : (
     <>
       <button
         className={darkmode ? "back dark-mode" : "back"}
@@ -119,8 +130,6 @@ const Country = ({ darkmode }) => {
         </div>
       </div>
     </>
-  ) : (
-    <h1 style={{ textAlign: "center" }}>404 COUNTRY NOT FOUND</h1>
   );
 };
 
