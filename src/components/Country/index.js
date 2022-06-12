@@ -13,7 +13,7 @@ const Country = ({ darkmode }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://restcountries.eu/rest/v2/name/${country}`
+          `https://restcountries.com/v2/name/${country}`
         );
 
         const {
@@ -32,9 +32,7 @@ const Country = ({ darkmode }) => {
 
         const fetchBorders = borders.length
           ? await axios.get(
-              `https://restcountries.eu/rest/v2/alpha?codes=${borders.join(
-                ";"
-              )}`
+              `https://restcountries.com/v2/alpha?codes=${borders.join(";")}`
             )
           : null;
 
