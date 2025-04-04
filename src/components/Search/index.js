@@ -46,15 +46,22 @@ const Search = ({ handleChange, handleSelect, darkmode }) => {
         color: "hsl(200, 15%, 8%)",
       },
     }),
-    option: (base) => ({
-      ...base,
-      backgroundColor: "transparent",
-      color: darkmode ? "hsl(0, 0%, 100%)" : "hsl(200, 15%, 8%)",
-      ":active": {
+    option: (base) => {
+      console.log({ base });
+      return {
+        ...base,
         backgroundColor: "transparent",
-      },
-      cursor: "pointer",
-      padding: "5px 25px",
+        color: darkmode ? "hsl(0, 0%, 100%)" : "hsl(200, 15%, 8%)",
+        ":active": {
+          backgroundColor: "transparent",
+        },
+        cursor: "pointer",
+        padding: "5px 25px",
+      };
+    },
+    singleValue: (base) => ({
+      ...base,
+      color: darkmode ? "hsl(0, 0%, 100%)" : "hsl(200, 15%, 8%)",
     }),
   };
 
