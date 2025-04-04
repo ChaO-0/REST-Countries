@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "./Card";
-import axios from "axios";
 
 const Cards = (props) => {
   const [Country, setCountry] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get("https://restcountries.com/v2/all");
-        setCountry(data);
+        const data = await fetch("./data.json");
+        setCountry(await data.json());
       } catch (e) {
         console.log(e);
         throw e;

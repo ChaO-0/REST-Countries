@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import axios from "axios";
 import "./style.css";
 
 const Country = ({ darkmode }) => {
@@ -12,9 +11,13 @@ const Country = ({ darkmode }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `https://restcountries.com/v2/name/${country}`
+        const data = await fetch("../data.json");
+        const jsonData = await data.json();
+        const foundCountry = jsonData.find(
+          (elm) => elm.name.toLowerCase() === country.toLowerCase()
         );
+
+        console.log({ foundCountry });
 
         const {
           flag,
@@ -28,15 +31,7 @@ const Country = ({ darkmode }) => {
           currencies,
           languages,
           borders,
-        } = response.data[0];
-
-        const fetchBorders = borders.length
-          ? await axios.get(
-              `https://restcountries.com/v2/alpha?codes=${borders.join(";")}`
-            )
-          : null;
-
-        const borderList = fetchBorders?.data.map((elm) => elm.name);
+        } = foundCountry;
 
         setDetail({
           flag,
@@ -49,9 +44,10 @@ const Country = ({ darkmode }) => {
           topLevelDomain,
           currencies: currencies.map((elm) => elm.name).join(", "),
           languages: languages.map((elm) => elm.name).join(", "),
-          borders: borderList,
+          borders,
         });
       } catch (e) {
+        console.log({ e });
         setError(true);
       }
     };
